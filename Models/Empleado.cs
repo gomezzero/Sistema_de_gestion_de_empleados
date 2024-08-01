@@ -5,13 +5,10 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_gestion_de_empleados.Models
 {
-    public class Empleado
+    public class Empleado : Persona
     {
         public Guid Id { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
         public string NumeroDeIdentificacion { get; set; }
-        public byte Edad { get; set; }
         public string Posicion { get; set; }
         public double Salario { get; set; }
 
@@ -31,7 +28,7 @@ namespace Sistema_de_gestion_de_empleados.Models
             Salario += Salario * 0.1; 
         }
 
-        public void MostrarInformacion()
+        public override void MostrarInformacion()
         {
             Console.WriteLine($"ID: {Id}");
             Console.WriteLine($"Nombre: {Nombre} {Apellido}");
