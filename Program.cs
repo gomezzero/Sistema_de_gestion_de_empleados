@@ -20,6 +20,9 @@ while (true)
     Console.WriteLine("4. Eliminar Empleado");
     Console.WriteLine("5. Buscar Empleado por numero de documento");
     Console.WriteLine("6. Mostrar empleado por cargo");
+    Console.WriteLine("7. Mostrar todos los Clientes");
+    Console.WriteLine("8. Agregar Cliente");
+    Console.WriteLine("9. Eliminar Cliente");
     Console.Write("ingrese la opcion: ");
 
     switch (Console.ReadLine())
@@ -79,7 +82,28 @@ while (true)
             Console.WriteLine("Pulse cualquier boton para volver al menu");
             Console.ReadKey();
             break;
+        case "7":
+            empresa1.MostrarTodosLosClientes();
 
+            Console.WriteLine("Pulse cualquier boton para volver al menu");
+            Console.ReadKey();
+            break;
+        case "8":
+            empresa1.AgregarCliente(empresa1.PedirdatosCliente()); // Funcional
+
+            Console.WriteLine("Pulse cualquier boton para volver al menu");
+            Console.ReadKey();
+            break;
+        case "9":
+            Console.WriteLine("Ingrese el nombre del Cliente que desea Eliminar:");
+            string nombre3 = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido del Cliente que desea Eliminar:");
+            string apellido3 = Console.ReadLine();
+            empresa1.EliminarCliente(nombre3, apellido3);
+
+            Console.WriteLine("Pulse cualquier boton para volver al menu");
+            Console.ReadKey();
+            break;
         default:
             Console.WriteLine("Opción inválida. Inténtalo de nuevo.");
             break;
