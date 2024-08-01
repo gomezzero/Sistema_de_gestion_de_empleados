@@ -15,7 +15,6 @@ namespace Sistema_de_gestion_de_empleados.Models
         public Empresa()
         { }
 
-
         public Empleado PedirdatosEmpleado()
         {
             Console.WriteLine("Ingrese el nombre del empleado");
@@ -64,13 +63,15 @@ namespace Sistema_de_gestion_de_empleados.Models
             ListaEmpleados.Add(empleado);
         }
 
-        public void EliminarEmpleado(string nombre2, string apellido2)
+        public void EliminarEmpleado(string numeroDeDocumento)
         {
-            Console.WriteLine($"seguiro que quieres eliminar al empleado: {nombre2} {apellido2}");
+            Console.WriteLine($"seguiro que quieres eliminar al empleado identificado con: {numeroDeDocumento}");
+            Console.WriteLine("si - no"); 
             string pregunta = Console.ReadLine();
             if (pregunta == "si")
             {
-                ListaEmpleados.RemoveAll(e => e.Nombre == nombre2 && e.Apellido == apellido2);
+                ListaEmpleados.RemoveAll(e => e.GetNombre() == numeroDeDocumento);
+                Console.WriteLine("El empleado fue eliminado");
             } 
             else
             {
@@ -82,27 +83,11 @@ namespace Sistema_de_gestion_de_empleados.Models
         {
             foreach (var empleado in ListaEmpleados)
             {
-                Console.WriteLine($"\nNombre: {empleado.Nombre} \n Apellido: {empleado.Apellido}\n Salario: {empleado.Salario} \n Numero de identificacion: {empleado.NumeroDeIdentificacion}");
+                Console.WriteLine($"\nNombre: {empleado.GetNombre()} \n Apellido: {empleado.GetApellido()}\n Salario: {empleado.Salario} \n Numero de identificacion: {empleado.NumeroDeIdentificacion}");
             }
         }
 
-        public void ActualizarEmpleado(string numeroDeIdentificacion, string nombre, string apellido, double nuevoSalario, string posicion)
-        {
-            Empleado empleadoActualizado = ListaEmpleados.Find(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
 
-            if (empleadoActualizado != null)
-            {
-                empleadoActualizado.Nombre = nombre;
-                empleadoActualizado.Apellido = apellido;
-                empleadoActualizado.Salario = nuevoSalario;
-                empleadoActualizado.Posicion = posicion;
-                Console.WriteLine("Empleado actualizado correctamente.");
-            }
-            else
-            {
-                Console.WriteLine("El empleado no fue encontrado.");
-            }
-        }
     
         public void BuscarEmpleadoPorDocumento(string numeroDeIdentificacion2)
         {
@@ -110,9 +95,9 @@ namespace Sistema_de_gestion_de_empleados.Models
             if (empleadoBusquedaNumero != null)
             {
             Console.WriteLine($@"
-            El nombre del empleado es = {empleadoBusquedaNumero.Nombre}
-            El apellido del empleado es = {empleadoBusquedaNumero.Apellido}
-            La edad del empleado es = {empleadoBusquedaNumero.Edad}
+            El nombre del empleado es = {empleadoBusquedaNumero.GetNombre()}
+            El apellido del empleado es = {empleadoBusquedaNumero.GetApellido()}
+            La edad del empleado es = {empleadoBusquedaNumero.GetApellido()}
             La pocision del empleado es = {empleadoBusquedaNumero.Posicion}");                
             }
         }
@@ -143,7 +128,7 @@ namespace Sistema_de_gestion_de_empleados.Models
             string pregunta = Console.ReadLine();
             if (pregunta == "si")
             {
-                ListaClientes.RemoveAll(e => e.Nombre == nombre3 && e.Apellido == apellido3);
+                ListaClientes.RemoveAll(e => e.GetNombre() == nombre3 && e.GetApellido() == apellido3);
             } 
             else
             {
@@ -155,7 +140,7 @@ namespace Sistema_de_gestion_de_empleados.Models
         {
             foreach (var cliente in ListaClientes)
             {
-                Console.WriteLine($"\nNombre: {cliente.Nombre} \n Apellido: {cliente.Apellido}\n Edad: {cliente.Edad} \n Telefono: {cliente.Telefono} \n Email: {cliente.Email}");
+                Console.WriteLine($"\nNombre: {cliente.GetNombre()} \n Apellido: {cliente.GetApellido()}\n Edad: {cliente.GetApellido()} \n Telefono: {cliente.Telefono} \n Email: {cliente.Email}");
             }  
         }
     }

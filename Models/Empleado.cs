@@ -7,7 +7,6 @@ namespace Sistema_de_gestion_de_empleados.Models
 {
     public class Empleado : Persona
     {
-        public Guid Id { get; set; }
         public string NumeroDeIdentificacion { get; set; }
         public string Posicion { get; set; }
         public double Salario { get; set; }
@@ -39,6 +38,27 @@ namespace Sistema_de_gestion_de_empleados.Models
             BonificacionSalario();
             Console.WriteLine($"Salario con bonificación: ${Salario}");
             Console.WriteLine();
+        }
+        public void mostraNombre(){
+            Console.WriteLine(Nombre);
+        }
+
+        public void ActualizarEmpleado(string numeroDeIdentificacion, string nombre, string apellido, double nuevoSalario, string posicion, List<Empleado> ListaEmpleados)
+        {
+            Empleado empleadoActualizado = ListaEmpleados.Find(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
+
+            if (empleadoActualizado != null)
+            {
+                empleadoActualizado.Nombre = nombre;
+                empleadoActualizado.Apellido = apellido;
+                empleadoActualizado.Salario = nuevoSalario;
+                empleadoActualizado.Posicion = posicion;
+                Console.WriteLine("Empleado actualizado correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("El empleado no fue encontrado.");
+            }
         }
     }
 }
