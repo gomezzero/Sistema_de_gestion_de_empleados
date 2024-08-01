@@ -12,7 +12,7 @@ namespace Sistema_de_gestion_de_empleados.Models
         public string Posicion { get; set; }
         public double Salario { get; set; }
 
-        public Empleado(string nombre, string apellido, string numeroDeIdentificacion, byte edad, string posicion, double salario)
+        public Empleado(string nombre, string apellido, string numeroDeIdentificacion, int edad, string posicion, double salario)
         {
             Id = Guid.NewGuid();
             Nombre = nombre;

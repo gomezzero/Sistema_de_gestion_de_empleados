@@ -10,12 +10,13 @@ namespace Sistema_de_gestion_de_empleados.Models
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public List<Empleado> ListaEmpleados = new List<Empleado>();
+        public List<Cliente> ListaClientes = new List<Cliente>();
 
         public Empresa()
         { }
 
 
-        public Empleado Pedirdatos()
+        public Empleado PedirdatosEmpleado()
         {
             Console.WriteLine("Ingrese el nombre del empleado");
             string nombre = Console.ReadLine();
@@ -27,7 +28,7 @@ namespace Sistema_de_gestion_de_empleados.Models
             string numeroDeIdentificacion = Console.ReadLine();
 
             Console.WriteLine("Ingrese la edad del empleado");
-            byte edad = Convert.ToByte(Console.ReadLine());
+            int edad = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Ingrese la Posicion");
             string posicion = Console.ReadLine();
@@ -36,6 +37,26 @@ namespace Sistema_de_gestion_de_empleados.Models
             double salario = Convert.ToDouble(Console.ReadLine());
 
             return new Empleado(nombre, apellido, numeroDeIdentificacion, edad, posicion, salario);
+        }
+
+        public Cliente PedirdatosCliente()
+        {
+            Console.WriteLine("Ingrese el nombre del Cliente");
+            string nombre = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el apepllido del Cliente");
+            string apellido = Console.ReadLine();
+
+            Console.WriteLine("Ingrese la edad del Cliente");
+            int Edad = Convert.ToInt16(Console.ReadLine());
+
+            Console.WriteLine("Ingrese el email De Identificacion");
+            string Email = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el Telefono del Cliente");
+            string Telefono = Console.ReadLine();
+
+            return new Cliente(nombre, apellido, Edad, Email, Telefono);
         }
 
         public void AgregarEmpleados(Empleado empleado)
@@ -109,6 +130,33 @@ namespace Sistema_de_gestion_de_empleados.Models
                     Console.WriteLine("Cargo sin empleados");
                 }
             }
+        }
+    
+        public void AgregarCliente(Cliente cliente)
+        {
+            ListaClientes.Add(cliente);
+        }
+    
+        public void EliminarCliente(string nombre3, string apellido3)
+        {
+            Console.WriteLine($"seguiro que quieres eliminar al empleado: {nombre3} {apellido3}");
+            string pregunta = Console.ReadLine();
+            if (pregunta == "si")
+            {
+                ListaClientes.RemoveAll(e => e.Nombre == nombre3 && e.Apellido == apellido3);
+            } 
+            else
+            {
+                Console.WriteLine("En tendido");
+            }
+        }
+    
+        public void MostrarTodosLosClientes()
+        {
+            foreach (var cliente in ListaClientes)
+            {
+                Console.WriteLine($"\nNombre: {cliente.Nombre} \n Apellido: {cliente.Apellido}\n Edad: {cliente.Edad} \n Telefono: {cliente.Telefono} \n Email: {cliente.Email}");
+            }  
         }
     }
 }

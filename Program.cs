@@ -31,7 +31,7 @@ while (true)
             Console.ReadKey();
             break;
         case "2":
-            empresa1.AgregarEmpleados(empresa1.Pedirdatos()); // Funcional
+            empresa1.AgregarEmpleados(empresa1.PedirdatosEmpleado()); // Funcional
 
             Console.WriteLine("Pulse cualquier boton para volver al menu");
             Console.ReadKey();
