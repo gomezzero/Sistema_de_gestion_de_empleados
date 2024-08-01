@@ -60,16 +60,18 @@ namespace Sistema_de_gestion_de_empleados.Models
             Console.WriteLine(Nombre);
         }
 
-        public void ActualizarEmpleado(string numeroDeIdentificacion, string nombre, string apellido, double nuevoSalario, string posicion, List<Empleado> ListaEmpleados)
+        public void ActualizarEmpleado(string numeroDeIdentificacion, List<Empleado> ListaEmpleados)
         {
+            
             Empleado empleadoActualizado = ListaEmpleados.Find(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
 
             if (empleadoActualizado != null)
             {
-                empleadoActualizado.Nombre = nombre;
-                empleadoActualizado.Apellido = apellido;
-                empleadoActualizado.Salario = nuevoSalario;
-                empleadoActualizado.Posicion = posicion;
+                var nuevosDatos = Administracion.ActualizacionEmpleados();
+                empleadoActualizado.Nombre = nuevosDatos.Nombre;
+                empleadoActualizado.Apellido = nuevosDatos.Apellido;
+                empleadoActualizado.Salario = nuevosDatos.Salario;
+                empleadoActualizado.Posicion = nuevosDatos.Posicion;
                 Console.WriteLine("Empleado actualizado correctamente.");
             }
             else

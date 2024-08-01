@@ -50,6 +50,11 @@ namespace Sistema_de_gestion_de_empleados.Models
             return new Cliente(nombre, apellido, Edad, Email, Telefono);
         }
 
+        public static Empleado ActualizacionEmpleados()
+        {
+            return CrearEmpleado();
+  
+        }
         public static void MostrarTitulo(string titulo)
         {
             Console.Clear();

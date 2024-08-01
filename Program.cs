@@ -46,16 +46,8 @@ while (true)
             Administracion.MostrarTitulo("Actualizador de Empleados");
             Console.WriteLine("Ingrese el numero de identificacion del empleado que desea actualizar:");
             string numeroDeIdentificacion = Console.ReadLine();
-            Console.WriteLine("Ingrese el nombre del empleado que desea actualizar:");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("Ingrese el apellido del empleado que desea actualizar:");
-            string apellido = Console.ReadLine();
-            Console.WriteLine("Ingrese el nuevo salario:");
-            double nuevoSalario = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Ingrese el Position del empleado");
-            string position = Console.ReadLine();
 
-            empleado1.ActualizarEmpleado(numeroDeIdentificacion, nombre, apellido, nuevoSalario, position, empresa1.ListaEmpleados);
+            empleado1.ActualizarEmpleado(numeroDeIdentificacion, empresa1.ListaEmpleados);
 
             Administracion.MostrarSeparador();
             Administracion.VolverMenu();
@@ -117,13 +109,3 @@ while (true)
             break;
     }
 }
-
-
-
-
-//  // Funcional
-
-// empleado1.MostrarInformacion(); // Funciona
-
-// agrega un empleado
-
