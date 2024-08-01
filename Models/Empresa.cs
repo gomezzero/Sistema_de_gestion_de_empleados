@@ -15,49 +15,6 @@ namespace Sistema_de_gestion_de_empleados.Models
         public Empresa()
         { }
 
-        public Empleado PedirdatosEmpleado()
-        {
-            Console.WriteLine("Ingrese el nombre del empleado");
-            string nombre = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el nombre del empleado");
-            string apellido = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el Numero De Identificacion");
-            string numeroDeIdentificacion = Console.ReadLine();
-
-            Console.WriteLine("Ingrese la edad del empleado");
-            int edad = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Ingrese la Posicion");
-            string posicion = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el Salario del empleado");
-            double salario = Convert.ToDouble(Console.ReadLine());
-
-            return new Empleado(nombre, apellido, numeroDeIdentificacion, edad, posicion, salario);
-        }
-
-        public Cliente PedirdatosCliente()
-        {
-            Console.WriteLine("Ingrese el nombre del Cliente");
-            string nombre = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el apepllido del Cliente");
-            string apellido = Console.ReadLine();
-
-            Console.WriteLine("Ingrese la edad del Cliente");
-            int Edad = Convert.ToInt16(Console.ReadLine());
-
-            Console.WriteLine("Ingrese el email De Identificacion");
-            string Email = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el Telefono del Cliente");
-            string Telefono = Console.ReadLine();
-
-            return new Cliente(nombre, apellido, Edad, Email, Telefono);
-        }
-
         public void AgregarEmpleados(Empleado empleado)
         {
             ListaEmpleados.Add(empleado);

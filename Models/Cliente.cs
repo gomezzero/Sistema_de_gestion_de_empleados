@@ -26,5 +26,21 @@ namespace Sistema_de_gestion_de_empleados.Models
             Console.WriteLine($"Email: {Email}");
             Console.WriteLine($"Telefono: ${Telefono}");
         }
+
+                public string GetNombre()
+        {
+
+            return Nombre;
+        }
+
+        public string GetApellido()
+        {
+            return Apellido;
+        }
+
+        public int GetEdad()
+        {
+            return Edad;
+        }
     }
 }

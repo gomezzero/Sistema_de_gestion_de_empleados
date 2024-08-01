@@ -2,20 +2,13 @@
 using Sistema_de_gestion_de_empleados.Models;
 
 var empleado1 = new Empleado("zero", "ingel", "213456787", 32, "Gerente", 120000);
+
 var empresa1 = new Empresa();
-
 empresa1.ListaEmpleados.Add(empleado1);
-
-
-empresa1.MostrarTodosLosEmpleados();
-
-Console.WriteLine(" ");
-Console.WriteLine(" ");
 
 while (true)
 {
-    Console.Clear();
-    Console.WriteLine("Sistema_de_gestion_de_empleados");
+    Administracion.MostrarTitulo("Sistema_de_gestion_de_empleados");
     Console.WriteLine("");
     Console.WriteLine("1. Mostrar Todos Los Empleados");
     Console.WriteLine("2. Agregar Empleado");
@@ -27,6 +20,7 @@ while (true)
     Console.WriteLine("8. Agregar Cliente");
     Console.WriteLine("9. Eliminar Cliente");
     Console.WriteLine("0. Salir");
+    Administracion.MostrarSeparador();
     Console.Write("ingrese la opcion: ");
 
     switch (Console.ReadLine())
@@ -34,21 +28,22 @@ while (true)
         case "0":
             return;
         case "1":
-            Console.Clear();
-            empresa1.MostrarTodosLosEmpleados();
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarTitulo("Empleados");
+            empresa1.MostrarTodosLosEmpleados();
+            Administracion.MostrarSeparador();
+
+            Administracion.VolverMenu();
             break;
         case "2":
-            Console.Clear();
-            empresa1.AgregarEmpleados(empresa1.PedirdatosEmpleado()); // Funcional
+            Administracion.MostrarTitulo("Agregador de Empleados");
+            empresa1.AgregarEmpleados(Administracion.CrearEmpleado()); // Funcional
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "3":
-            Console.Clear();
+            Administracion.MostrarTitulo("Actualizador de Empleados");
             Console.WriteLine("Ingrese el numero de identificacion del empleado que desea actualizar:");
             string numeroDeIdentificacion = Console.ReadLine();
             Console.WriteLine("Ingrese el nombre del empleado que desea actualizar:");
@@ -60,71 +55,63 @@ while (true)
             Console.WriteLine("Ingrese el Position del empleado");
             string position = Console.ReadLine();
 
-
-
             empleado1.ActualizarEmpleado(numeroDeIdentificacion, nombre, apellido, nuevoSalario, position, empresa1.ListaEmpleados);
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "4":
-            Console.Clear();
+            Administracion.MostrarTitulo("Eliminador de Empleados");
             Console.WriteLine("Ingrese el Numero de Identificacion del empleado que desea Eliminar:");
             string numeroDeDocumento = Console.ReadLine();
             empresa1.EliminarEmpleado(numeroDeDocumento);
 
-            Console.WriteLine("");
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "5":
-            Console.Clear();
+            Administracion.MostrarTitulo("Busqueda de Empleado por numero de documento");
             Console.WriteLine("ingrese el Numero de identificacion del empleado");
             string numeroDeIdentificacion2 = Console.ReadLine();
 
             empresa1.BuscarEmpleadoPorDocumento(numeroDeIdentificacion2);
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "6":
-            Console.Clear();
+            Administracion.MostrarTitulo("Mostrar empleado por cargo");
             Console.WriteLine("ingrese el cargo a filtrar");
             empresa1.MostrarEmpleadosPorCargo();
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "7":
-            Console.Clear();
+            Administracion.MostrarTitulo("Mostrar todos los Clientes");
             empresa1.MostrarTodosLosClientes();
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "8":
-            Console.Clear();
-            empresa1.AgregarCliente(empresa1.PedirdatosCliente()); // Funcional
+            Administracion.MostrarTitulo("Agregar Cliente");
+            empresa1.AgregarCliente(Administracion.CrearCliente()); // Funcional
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
         case "9":
-            Console.Clear();
+            Administracion.MostrarTitulo("Eliminar Cliente");
             Console.WriteLine("Ingrese el nombre del Cliente que desea Eliminar:");
             string nombre3 = Console.ReadLine();
             Console.WriteLine("Ingrese el apellido del Cliente que desea Eliminar:");
             string apellido3 = Console.ReadLine();
             empresa1.EliminarCliente(nombre3, apellido3);
 
-            Console.WriteLine("Pulse cualquier boton para volver al menu");
-            Console.ReadKey();
+            Administracion.MostrarSeparador();
+            Administracion.VolverMenu();
             break;
-        case "10":
-            Console.Clear();
-            empleado1.MostrarInformacion();
-            break;
-
         default:
             Console.WriteLine("Opción inválida. Inténtalo de nuevo.");
             break;

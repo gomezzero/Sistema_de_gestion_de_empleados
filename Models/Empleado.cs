@@ -21,10 +21,26 @@ namespace Sistema_de_gestion_de_empleados.Models
             Posicion = posicion;
             Salario = salario;
         }
-        
+
+        public string GetNombre()
+        {
+
+            return Nombre;
+        }
+
+        public string GetApellido()
+        {
+            return Apellido;
+        }
+
+        public int GetEdad()
+        {
+            return Edad;
+        }
+
         private void BonificacionSalario()
         {
-            Salario += Salario * 0.1; 
+            Salario += Salario * 0.1;
         }
 
         public override void MostrarInformacion()
@@ -39,7 +55,8 @@ namespace Sistema_de_gestion_de_empleados.Models
             Console.WriteLine($"Salario con bonificación: ${Salario}");
             Console.WriteLine();
         }
-        public void mostraNombre(){
+        public void mostraNombre()
+        {
             Console.WriteLine(Nombre);
         }
 

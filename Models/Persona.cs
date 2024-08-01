@@ -13,21 +13,5 @@ namespace Sistema_de_gestion_de_empleados.Models
         protected int Edad { get; set; }
 
         public abstract void MostrarInformacion();
-
-        public string GetNombre()
-        {
-
-            return Nombre;
-        }
-
-        public string GetApellido()
-        {
-            return Apellido;
-        }
-
-        public int GetEdad()
-        {
-            return Edad;
-        }
     }
 }
